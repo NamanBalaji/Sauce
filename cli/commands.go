@@ -14,6 +14,17 @@ var SearchByFile = &cobra.Command{
 	},
 }
 
+var SearchByLink = &cobra.Command{
+	Use:   "link",
+	Short: "Search for the anime scene by existing image url",
+	Long:  `what-anime link <IMAGE_URL>`,
+	Args:  cobra.MinimumNArgs(1),
+	Run: func(cmd *cobra.Command, args []string) {
+		SearchByImageLink(args[0])
+	},
+}
+
 func AddCommands() {
 	RootCmd.AddCommand(SearchByFile)
+	RootCmd.AddCommand(SearchByLink)
 }
